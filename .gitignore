@@ -205,3 +205,4 @@ junit.xml
 # Monitoring and profiling
 *.heapsnapshot
 *.cpuprofile
+.vercel

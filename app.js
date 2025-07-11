@@ -81,11 +81,13 @@ app.use((error, req, res, next) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  logger.info(`🚀 API Wilayah Indonesia berjalan di port ${PORT}`);
-  logger.info(`📖 Dokumentasi API: http://localhost:${PORT}`);
-  logger.info(`🏥 Health check: http://localhost:${PORT}/health`);
-});
+// Start server (only in development)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    logger.info(`🚀 API Wilayah Indonesia berjalan di port ${PORT}`);
+    logger.info(`📖 Dokumentasi API: http://localhost:${PORT}`);
+    logger.info(`🏥 Health check: http://localhost:${PORT}/health`);
+  });
+}
 
 module.exports = app;
