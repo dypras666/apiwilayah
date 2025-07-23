@@ -4,7 +4,7 @@ const logger = require('../utils/logger');
 
 class WilayahController {
   constructor() {
-    this.dataPath = path.join(__dirname, '../data/wilayah');
+    this.dataPath = path.join(__dirname, '../data/wilayah2025');
     this.provinces = null;
     this.regencies = null;
     this.districts = null;
@@ -16,19 +16,19 @@ class WilayahController {
   loadData() {
     try {
       // Load provinces
-      const provincesPath = path.join(__dirname, '../assets/wilayah/provinces.csv');
+      const provincesPath = path.join(__dirname, '../assets/wilayah2025/provinces.csv');
       this.provinces = this.parseCSV(provincesPath, ['id', 'name']);
       
       // Load regencies
-      const regenciesPath = path.join(__dirname, '../assets/wilayah/regencies.csv');
+      const regenciesPath = path.join(__dirname, '../assets/wilayah2025/regencies.csv');
       this.regencies = this.parseCSV(regenciesPath, ['id', 'province_id', 'name']);
       
       // Load districts
-      const districtsPath = path.join(__dirname, '../assets/wilayah/districts.csv');
+      const districtsPath = path.join(__dirname, '../assets/wilayah2025/districts.csv');
       this.districts = this.parseCSV(districtsPath, ['id', 'regency_id', 'name']);
       
       // Load villages
-      const villagesPath = path.join(__dirname, '../assets/wilayah/villages.csv');
+      const villagesPath = path.join(__dirname, '../assets/wilayah2025/villages.csv');
       this.villages = this.parseCSV(villagesPath, ['id', 'district_id', 'name']);
       
       logger.info('Wilayah data loaded successfully', {
